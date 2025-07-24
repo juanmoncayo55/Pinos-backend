@@ -58,7 +58,8 @@ class PinoModel {
           asesoria,
           dia_cita,
           hora_cita
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25)
+        RETURNING id;
       `;
 
       const values = [
@@ -89,9 +90,9 @@ class PinoModel {
         hora_cita
       ];
 
-        let [result] = await conn.query(sql, values);
+        const result = await conn.query(sql, values);
 
-        return { ...data, id: result.insertId };
+        return { ...data, id: result.rows[0].id };
 
     } catch (error) {
       console.error('Error al registrar el interesado:', error);
