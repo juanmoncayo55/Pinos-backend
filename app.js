@@ -9,7 +9,7 @@ dotenv.config();
 app.use( express.json() );
 
 app.use(cors({
-  origin: 'https://timely-jelly-8e15d2.netlify.app/', // Permite solo este origen
+  origin: 'https://timely-jelly-8e15d2.netlify.app', // Permite solo este origen
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos HTTP permitidos
   allowedHeaders: ['Content-Type', 'Authorization'], // Encabezados permitidos
   credentials: true // Si necesitas manejar cookies o sesiones (opcional)
