@@ -4,7 +4,7 @@ const pm = new PinoModel();
 class Pino {
   async registrarEncuesta(req, res){
     try {
-      let result = await pm.registrarEncuesta(req.body);
+      let result = await pm.registrarBeneficiario(req.body);
       // Si todo sale bien, enviamos una respuesta de éxito con status 201 (Created)
       res.status(201).json({ message: 'Interesado registrado exitosamente', data: result });
     } catch (error) {
